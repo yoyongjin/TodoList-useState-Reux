@@ -3,19 +3,32 @@ import styled from "styled-components";
 import AddTodoButton from "../UI/AddTodoButton";
 import { useState } from "react";
 
-const AddTodo = () => {
-  const [enteredTodo, setEnteredTodo] = useState("enter Todo");
+const AddTodo = (props) => {
+  const [enteredTodo, setEnteredTodo] = useState("");
 
-  const addTodoHandler = (e) => {
+  const whenSubmit = (e) => {
     e.preventDefault();
+    props.onAddList(enteredTodo);
+
+    setEnteredTodo("");
+  };
+
+  const todoInputChange = (e) => {
+    setEnteredTodo(e.target.value);
   };
 
   return (
     <InnerContainer>
-      <form onSubmit={addTodoHandler}>
-        <label htmlFor="todo">Todo-List</label>
+      <form onSubmit={whenSubmit}>
+        <label htmlFor="todoInput">Todo-List</label>
         <InnerContainer>
-          <input id="todo" type="text" />
+          <input
+            id="todoInput"
+            // specialKey={Math.random().toString}
+            type="text"
+            value={enteredTodo}
+            onChange={todoInputChange}
+          />
           <AddTodoButton type="submit">Add</AddTodoButton>
         </InnerContainer>
       </form>

@@ -6,12 +6,17 @@ const Card = (props) => {
 };
 
 const TodoCard = styled.div`
-  display: block;
-  width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 50vw;
   height: 2rem;
-  background-color: #ccc;
+  margin: 0.35rem 0;
+
+  line-height: 2rem;
+  padding-left: 0.5rem;
+  background-color: #eee;
   border: 1px solid black;
-  border-radius: 1.5rem;
+  border-radius: 0.5rem;
 `;
 
 export default Card;

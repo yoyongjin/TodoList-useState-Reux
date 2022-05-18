@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const AddTodoButton = (event) => {
+const AddTodoButton = (props) => {
   //   event.preventDefault();
-  return <AddBtn>Add</AddBtn>;
+  return <AddBtn type={props.type}>Add</AddBtn>;
 };
 
 const AddBtn = styled.button`
